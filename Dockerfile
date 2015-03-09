@@ -9,7 +9,7 @@ RUN yum update -y; yum clean all
 #RUN yum install -y python-cheetah unzip
 
 # Download and extract the latest SickRage release
-RUN curl -L https://github.com/RuudBurger/CouhPotatoServer/archive/master.zip -o /CouchPotatoServer.zip
+RUN curl -L https://github.com/RuudBurger/CouchPotatoServer/archive/master.zip -o /CouchPotatoServer.zip
 RUN unzip /CouchPotatoServer.zip
 RUN rm -f /CouchPotatoServer.zip
 
