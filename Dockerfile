@@ -7,6 +7,7 @@ ENV container docker
 # Install updates, and pre-requisites for CouchPotato
 RUN yum update -y; yum clean all
 #RUN yum install -y python-cheetah unzip
+RUN yum install -y unzip
 
 # Download and extract the latest SickRage release
 #RUN curl -L https://github.com/RuudBurger/CouchPotatoServer/archive/master.zip -o /CouchPotatoServer.zip
