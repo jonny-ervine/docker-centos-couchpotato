@@ -6,7 +6,9 @@ ENV container docker
 
 # Install updates, and pre-requisites for CouchPotato
 RUN yum update -y; yum clean all
-RUN yum install -y unzip
+RUN yum install -y http://mirror.pnl.gov/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+RUN yum install -y unzip supervisor
+RUN yum clean all
 
 # Download and extract the latest SickRage release
 RUN curl -L https://github.com/RuudBurger/CouchPotatoServer/archive/master.zip -o /CouchPotatoServer.zip
@@ -17,5 +19,5 @@ VOLUME /config
 VOLUME /data
 VOLUME /downloads
 
-EXPOSE 5050
-ENTRYPOINT ["/CouchPotatoServer-master/CouchPotato.py", "--data_dir=/config"]
+EXPOSE 5050 9004
+ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
