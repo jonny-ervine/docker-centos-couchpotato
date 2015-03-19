@@ -15,6 +15,9 @@ RUN curl -L https://github.com/RuudBurger/CouchPotatoServer/archive/master.zip -
 RUN unzip /CouchPotatoServer.zip
 RUN rm -f /CouchPotatoServer.zip
 
+ADD supervisord.conf /etc/supervisord.conf
+ADD couchpotato.ini /etc/supervisord.d/couchpotato.conf
+
 VOLUME /config
 VOLUME /data
 VOLUME /downloads
