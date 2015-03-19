@@ -16,7 +16,7 @@ RUN unzip /CouchPotatoServer.zip
 RUN rm -f /CouchPotatoServer.zip
 
 ADD supervisord.conf /etc/supervisord.conf
-ADD couchpotato.ini /etc/supervisord.d/couchpotato.conf
+ADD couchpotato.ini /etc/supervisord.d/couchpotato.ini
 
 VOLUME /config
 VOLUME /data
