@@ -14,7 +14,7 @@ The SickRage software package is downloaded as a zip file from github and then e
 The container can be run as follows:
 
     docker pull jervine/docker-centos-couchpotato
-    docker run -d -n <optional name of container> -h <optional host name of container> -e TZ="<optional timezone> -v /<config directory on host>:/config/couchpotato -v /<download directory on host>:/downloads -p 505:5050 -p 9004:9004 jervine/docker-centos-couchpotato
+    docker run -d -n <optional name of container> -h <optional host name of container> -e TZ="<optional timezone> -v /<config directory on host>:/config/couchpotato -v /<download directory on host>:/downloads -p 5050:5050 -p 9004:9004 jervine/docker-centos-couchpotato
 
 THe TZ variable allows the user to set the correct timezone for the container and should take the form "Europe/London". If no timezone is specified then UTC is used by default. The timezone is set up when the container is run. Subsequent stops and starts will not change the timezone.
 
