@@ -7,7 +7,7 @@ ENV container docker
 # Install updates, and pre-requisites for CouchPotato
 RUN yum update -y; yum clean all
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN yum install -y unzip supervisor
+RUN yum install -y unzip supervisor git
 RUN yum clean all
 
 # Download and extract the latest SickRage release
