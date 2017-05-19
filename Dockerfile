@@ -11,7 +11,7 @@ RUN yum install -y unzip supervisor git
 RUN yum clean all
 
 # Download and extract the latest SickRage release
-RUN git clone https://github.com/CouchPotatoServer/CouchPotatoServer.git
+RUN git clone https://github.com/CouchPotato/CouchPotatoServer.git
 
 ADD supervisord.conf /etc/supervisord.conf
 ADD couchpotato.ini /etc/supervisord.d/couchpotato.ini
