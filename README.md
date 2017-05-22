@@ -14,7 +14,7 @@ The CouchPotatoServer software is pulled from the github source into the docker 
 The container can be run as follows:
 
     docker pull jervine/docker-centos-couchpotato
-    docker run -d -n <optional name of container> -h <optional host name of container> -e USER="<user account to run as> -e USER-UID="<uid of user account"> -e TZ="<optional timezone> -v /<config directory on host>:/config/couchpotato -v /<download directory on host>:/downloads -p 5050:5050 -p 9004:9004 jervine/docker-centos-couchpotato
+    docker run -d -n <optional name of container> -h <optional host name of container> -e USER="<user account to run as> -e USERUID="<uid of user account"> -e TZ="<optional timezone> -v /<config directory on host>:/config/couchpotato -v /<download directory on host>:/downloads -p 5050:5050 -p 9004:9004 jervine/docker-centos-couchpotato
 
 The USER and UID variables will be used to create an unprivileged account in the container to run the CouchPotatoServer under. The startup.sh script will create this user and also inject the username into the user= parameter of the couchpotato.ini supervisor file.
 
