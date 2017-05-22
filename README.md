@@ -9,14 +9,16 @@ The EPEL repository provides:
 
 The CouchPotato daemon is controlled via the supervisord daemon which has a web front end exposed via port 9004. Default username and password for the web front end is admin:admin.
 
-The SickRage software package is downloaded as a zip file from github and then extracted into the docker container ready for use.
+The CouchPotatoServer software is pulled from the github source into the docker container ready for use.
 
 The container can be run as follows:
 
     docker pull jervine/docker-centos-couchpotato
-    docker run -d -n <optional name of container> -h <optional host name of container> -e TZ="<optional timezone> -v /<config directory on host>:/config/couchpotato -v /<download directory on host>:/downloads -p 5050:5050 -p 9004:9004 jervine/docker-centos-couchpotato
+    docker run -d -n <optional name of container> -h <optional host name of container> -e USER="<user account to run as> -e UID="<uid of user account"> -e TZ="<optional timezone> -v /<config directory on host>:/config/couchpotato -v /<download directory on host>:/downloads -p 5050:5050 -p 9004:9004 jervine/docker-centos-couchpotato
 
-THe TZ variable allows the user to set the correct timezone for the container and should take the form "Europe/London". If no timezone is specified then UTC is used by default. The timezone is set up when the container is run. Subsequent stops and starts will not change the timezone.
+The USER and UID variables will be used to create an unprivileged account in the container to run the CouchPotatoServer under. The startup.sh script will create this user and also inject the username into the user= parameter of the couchpotato.ini supervisor file.
+
+The TZ variable allows the user to set the correct timezone for the container and should take the form "Europe/London". If no timezone is specified then UTC is used by default. The timezone is set up when the container is run. Subsequent stops and starts will not change the timezone.
 
 The container can be verified on the host by using:
 
@@ -25,4 +27,4 @@ and/or:
 
     cat /<config directory on host>/logs/couchpotato.log
 
-Please note that the SELinux permissions of the config and downloads directories may need to be changed/corrected as necessary.
+Please note that the SELinux permissions of the config and downloads directories may need to be changed/corrected as necessary. [Currently chcon -Rt svirt_sandbox_file_t <directory>]
