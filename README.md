@@ -1,5 +1,7 @@
 # docker-centos-couchpotato
-## CouchPotato running on the latest CentOS docker image (7.0)
+## CouchPotato running on CentOS (7.4)
+### Build Version: 1
+Date of Build: 15th September 2017
 
 The Dockerfile should intialise the CentOS image and subscribe to the EPEL repository. The pre-requisites for CouchPotato are then installed via yum.
 
